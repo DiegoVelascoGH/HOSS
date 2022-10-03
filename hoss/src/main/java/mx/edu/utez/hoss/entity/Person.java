@@ -27,8 +27,8 @@ public class Person implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "person_id", nullable = false)
-	private Long personId;
+	@Column(name = "id", nullable = false)
+	private Long id;
 	
 	@Column(name = "name", nullable = false, length = 50)
     @Pattern(regexp = "^[A-ZÁÉÍÓÚ]{1}[a-zñáéíóú ]*((\\s)?((\\'|\\-|\\.)?([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]*)+))*$", message = "El nombre debe contener solo caracteres normales y empezar con mayúscula")
@@ -54,19 +54,19 @@ public class Person implements Serializable {
     
     //Foreign key for address
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "address", unique = true, nullable = false)
-    private Address address;
+    @JoinColumn(name = "contact_info_id", unique = true, nullable = false)
+    private ContactInfo contactInfo;
 	
     public Person() {
     	
     }
 
-	public Long getPersonId() {
-		return personId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setPersonId(Long personId) {
-		this.personId = personId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -101,12 +101,12 @@ public class Person implements Serializable {
 		this.user = user;
 	}
 
-	public Address getAddress() {
-		return address;
+	public ContactInfo getContactInfo() {
+		return contactInfo;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setContactInfo(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
 	}
     
 }

@@ -21,8 +21,8 @@ public class Status implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "status_id", nullable = false)
-	private Long statusId;
+	@Column(name = "id", nullable = false)
+	private Long id;
 	
 	@Column(name = "description", nullable = false)
 	@NotEmpty(message = "Este campo es requerido")
@@ -43,13 +43,15 @@ public class Status implements Serializable {
 		
 	}
 
-	public Long getStatusId() {
-		return statusId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setStatusId(Long statusId) {
-		this.statusId = statusId;
+	public void setId(Long id) {
+		this.id = id;
 	}
+
+
 
 	public String getDescription() {
 		return description;

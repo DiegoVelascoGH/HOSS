@@ -27,8 +27,8 @@ public class Building implements Serializable {
 	private long id;
 	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "address_id", nullable = false)
-	private Address address;
+	@JoinColumn(name = "contact_info_id", nullable = false)
+	private ContactInfo contactInfo;
 	
 	//Configuration for room
 	@OneToMany(mappedBy = "building")

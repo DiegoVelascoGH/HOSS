@@ -21,8 +21,8 @@ public class Role implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "role_id")
-	private Long roleId;
+	@Column(name = "id")
+	private Long id;
 	
 	@Column(name = "description", nullable = false)
 	@NotEmpty(message = "Este campo es requerido")
@@ -37,12 +37,12 @@ public class Role implements Serializable {
 		
 	}
 
-	public Long getRoleId() {
-		return roleId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getDescription() {

@@ -28,8 +28,8 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id", nullable = false)
-	private Long userId;
+	@Column(name = "id", nullable = false)
+	private Long id;
 	
 	@Column(name = "username", nullable = false, unique = true)
 	@NotEmpty(message = "Esta campo es requerido")
@@ -49,25 +49,25 @@ public class User implements Serializable {
     
     //Foreign key for person
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "person", nullable = false, unique = true)
+    @JoinColumn(name = "person_id", nullable = false, unique = true)
     private Person person;
     
     //Foreign key for role
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "role_id", nullable = false)
     private Role role;
     
     //Foreign key for status
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "status", nullable = false, unique = true)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "status_id", nullable = false)
     private Status status;
 
-	public Long getUserId() {
-		return userId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
