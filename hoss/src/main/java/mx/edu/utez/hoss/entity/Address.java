@@ -41,9 +41,14 @@ public class Address implements Serializable {
 	private String city;
 	
 	//Configuration for user
-    @OneToOne(mappedBy = "address_id")
+    @OneToOne(mappedBy = "address")
     @JsonIgnore
     private Person person;
+    
+    //Configuration for building
+    @OneToOne(mappedBy = "address")
+    @JsonIgnore
+    private Building building;
     
     public Address() {
     	

@@ -48,13 +48,13 @@ public class Person implements Serializable {
     private String secondSurname;
     
     //Configuration for user
-    @OneToOne(mappedBy = "person_id")
+    @OneToOne(mappedBy = "person")
     @JsonIgnore
     private User user;
     
     //Foreign key for address
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", unique = true, nullable = false)
+    @JoinColumn(name = "address", unique = true, nullable = false)
     private Address address;
 	
     public Person() {

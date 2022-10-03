@@ -29,9 +29,15 @@ public class Status implements Serializable {
 	private String description;
 	
 	//Configuration for user
-	@OneToOne(mappedBy = "status_id")
+	@OneToOne(mappedBy = "status")
 	@JsonIgnore
 	private User user;
+	
+	//Configuration for room
+	@OneToOne(mappedBy = "status")
+	@JsonIgnore
+	private Room room;
+	
 	
 	public Status() {
 		

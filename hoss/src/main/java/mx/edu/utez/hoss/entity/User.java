@@ -1,6 +1,7 @@
 package mx.edu.utez.hoss.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,11 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
@@ -45,17 +49,17 @@ public class User implements Serializable {
     
     //Foreign key for person
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id", nullable = false, unique = true)
+    @JoinColumn(name = "person", nullable = false, unique = true)
     private Person person;
     
     //Foreign key for role
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_id", nullable = false, unique = true)
+    @JoinColumn(name = "role", nullable = false)
     private Role role;
     
     //Foreign key for status
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "status_id", nullable = false, unique = true)
+    @JoinColumn(name = "status", nullable = false, unique = true)
     private Status status;
 
 	public Long getUserId() {
@@ -113,5 +117,13 @@ public class User implements Serializable {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-    
+	
+	//Configuration for observations
+	@OneToMany(mappedBy = "user")
+	@JsonIgnore
+	private List<Observation> observations;
+	
+	@OneToMany(mappedBy = "user")
+	@JsonIgnore
+	private List<AssignedRoom> assignedRooms;
 }

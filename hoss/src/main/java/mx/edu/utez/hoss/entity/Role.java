@@ -29,7 +29,7 @@ public class Role implements Serializable {
 	private String description;
 	
 	//Configuration for user
-	@OneToOne(mappedBy = "role_id")
+	@OneToOne(mappedBy = "role")
 	@JsonIgnore
 	private User user;
 	

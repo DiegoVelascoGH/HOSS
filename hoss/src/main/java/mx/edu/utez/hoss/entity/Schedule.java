@@ -3,8 +3,10 @@ package mx.edu.utez.hoss.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -58,6 +60,10 @@ public class Schedule implements Serializable{
 		return "Schedule [id=" + id + ", start_date=" + start_date + ", end_date=" + end_date + "]";
 	}
 	
+	//foreign key for assignedRoom
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "assignedRoom")
+	private AssignedRoom assignedRoom;
 	
 	
 //	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
