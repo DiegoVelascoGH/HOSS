@@ -47,8 +47,45 @@ public class Room implements Serializable {
 	@OneToMany(mappedBy = "room")
 	@JsonIgnore
 	private List<AssignedRoom> assignedRooms;
-	
-	
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Building getBuilding() {
+		return building;
+	}
+
+	public void setBuilding(Building building) {
+		this.building = building;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public List<Observation> getObservations() {
+		return observations;
+	}
+
+	public void setObservations(List<Observation> observations) {
+		this.observations = observations;
+	}
+
+	public List<AssignedRoom> getAssignedRooms() {
+		return assignedRooms;
+	}
+
+	public void setAssignedRooms(List<AssignedRoom> assignedRooms) {
+		this.assignedRooms = assignedRooms;
+	}
 	
 }
