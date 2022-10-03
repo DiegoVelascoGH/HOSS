@@ -24,8 +24,7 @@ public class Role implements Serializable {
 	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "description", nullable = false)
-	@NotEmpty(message = "Este campo es requerido")
+	@Column(name = "description")
 	private String description;
 	
 	//Configuration for user

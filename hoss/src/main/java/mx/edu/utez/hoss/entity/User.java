@@ -55,13 +55,11 @@ public class User implements Serializable {
     //Foreign key for role
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "role_id", nullable = false)
-    @JsonIgnore
     private Role role;
     
     //Foreign key for status
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "status_id", nullable = false)
-    @JsonIgnore
     private Status status;
 
 	public Long getId() {
