@@ -29,9 +29,9 @@ public class Role implements Serializable {
 	private String description;
 	
 	//Configuration for user
-	@OneToOne(mappedBy = "role")
-	@JsonIgnore
-	private User user;
+//	@OneToOne(mappedBy = "role")
+//	@JsonIgnore
+//	private User user;
 	
 	public Role() {
 		
@@ -51,14 +51,6 @@ public class Role implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 	
 }

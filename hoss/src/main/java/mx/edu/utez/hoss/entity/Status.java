@@ -29,9 +29,9 @@ public class Status implements Serializable {
 	private String description;
 	
 	//Configuration for user
-	@OneToOne(mappedBy = "status")
-	@JsonIgnore
-	private User user;
+//	@OneToOne(mappedBy = "status")
+//	@JsonIgnore
+//	private User user;
 	
 	//Configuration for room
 	@OneToOne(mappedBy = "status")
@@ -61,12 +61,12 @@ public class Status implements Serializable {
 		this.description = description;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 }
