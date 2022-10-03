@@ -76,7 +76,7 @@ public class AssignedRoom implements Serializable{
 
 	@Override
 	public String toString() {
-		return "AssignedRoom user=" + user.getUserId() + ", room=" + room.getId();
+		return "AssignedRoom user=" + user.getId() + ", room=" + room.getId();
 	}
 
 	
