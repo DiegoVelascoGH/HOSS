@@ -15,9 +15,7 @@ public class AssignedRoomService {
     private IAssignedRoomRepository assignedRoomRepository;
 
     public List<AssignedRoom> findAll(){
-
         return assignedRoomRepository.findAll();
-
     }
 
     public AssignedRoom findById(long id){
